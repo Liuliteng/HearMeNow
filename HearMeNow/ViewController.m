@@ -57,10 +57,8 @@
             if(granted)
             {
                 [soundRecorder record];
-                [self.recordButton setTitle:@"Stop"
-                                   forState:UIControlStateNormal];
-            }
-            else {
+                [self.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
+            }else {
                 NSLog(@"Unable to record");
             }
         }];
@@ -81,6 +79,8 @@
         if (!error)
         {
             soundPlayer.delegate = self;
+            soundPlayer.enableRate = YES;
+            soundPlayer.rate = 0.2;
             [soundPlayer play];
         } else {
             NSLog(@"Error initializing player: %@", error);
